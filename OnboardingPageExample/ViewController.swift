@@ -10,20 +10,35 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var onboardPageControl: UIPageControl!
+    @IBOutlet weak var nextButton: UIButton!
     
     var onboardPageViewController: OnboardPageViewController!
-    var currentIndex: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         onboardPageControl.preferredIndicatorImage = UIImage(named: "otherPageIndicator")
-        let startPage = 0  // Assume the 1st page is the start page
-        onboardPageControl.setIndicatorImage(UIImage(named: "currentPageIndicator"), forPage: startPage)
+        onboardPageControl.setIndicatorImage(UIImage(named: "currentPageIndicator"), forPage: 0)
         onboardPageControl.pageIndicatorTintColor = UIColor(named: "Gray")
         onboardPageControl.currentPageIndicatorTintColor = UIColor(named: "Neo")
         
     }
     
+    @IBAction func nextButtonTapped(_ sender: Any) {
+        let nextPageIndex = onboardPageControl.currentPage + 1
+        onboardPageViewController.goToPage(index: nextPageIndex)
+        onboardPageControl.currentPage = nextPageIndex
+        updatePageControlUI(currentPageIndex: nextPageIndex)
+        
+        changeButtonText(index: nextPageIndex)
+    }
+    
+    func changeButtonText(index: Int) {
+        if index == (onboardPageControl.numberOfPages-1){
+            nextButton.titleLabel?.text = "마지막"
+        }else{
+            nextButton.titleLabel?.text = "다음"
+        }
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let desinationViewController = segue.destination as? OnboardPageViewController {
@@ -34,9 +49,10 @@ class ViewController: UIViewController {
     
     @IBAction func pageControlValueChanged(_ sender: Any) {
         let currentPageIndex = onboardPageControl.currentPage
-        currentIndex = currentPageIndex
         onboardPageViewController.goToPage(index: currentPageIndex)
-        updatePageControlUI(currentPageIndex: onboardPageControl.currentPage)
+        updatePageControlUI(currentPageIndex: currentPageIndex)
+        
+        changeButtonText(index: currentPageIndex)
     }
     
     func updatePageControlUI(currentPageIndex: Int) {
@@ -62,7 +78,8 @@ extension ViewController: OnboardPageControlDelegate {
     func pageChangedTo(index: Int) {
         updatePageControlUI(currentPageIndex: index)
         onboardPageControl.currentPage = index
-        currentIndex = index
+        
+        changeButtonText(index: index)
 
     }
     

@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -28,19 +29,40 @@
                                     <action selector="pageControlValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="I1Y-jR-xwY"/>
                                 </connections>
                             </pageControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xLS-nv-fl8">
+                                <rect key="frame" x="20" y="802" width="374" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="dar-To-VR3"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="다음">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" name="Neo"/>
+                                    </backgroundConfiguration>
+                                    <fontDescription key="titleFontDescription" name="NotoSansKR-Regular" family="Noto Sans KR" pointSize="22"/>
+                                    <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="nextButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HSc-Ju-jOe"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="XRU-Jz-8ku" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="6qE-GN-gsT"/>
                             <constraint firstItem="XRU-Jz-8ku" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="8X5-Xi-Z1K"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="xLS-nv-fl8" secondAttribute="bottom" constant="20" id="Ber-NS-7Pq"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xLS-nv-fl8" secondAttribute="trailing" constant="20" id="ITA-cD-ZHO"/>
                             <constraint firstItem="pF5-ZS-Vb1" firstAttribute="centerX" secondItem="XRU-Jz-8ku" secondAttribute="centerX" id="Y1D-Yy-w7B"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="XRU-Jz-8ku" secondAttribute="bottom" id="iyy-P4-Hdq"/>
+                            <constraint firstItem="xLS-nv-fl8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="j1h-dM-jz7"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="XRU-Jz-8ku" secondAttribute="trailing" id="nhY-mQ-1g9"/>
                             <constraint firstItem="pF5-ZS-Vb1" firstAttribute="top" secondItem="XRU-Jz-8ku" secondAttribute="bottom" constant="-250" id="oDf-lu-4DR"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="nextButton" destination="xLS-nv-fl8" id="MiC-Bm-fbl"/>
                         <outlet property="onboardPageControl" destination="pF5-ZS-Vb1" id="vK3-xt-FDD"/>
                     </connections>
                 </viewController>
@@ -65,17 +87,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HW3-Sc-8tt">
-                                <rect key="frame" x="194.5" y="405.5" width="25" height="85"/>
+                                <rect key="frame" x="194.5" y="410.5" width="25" height="85"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="70"/>
-                                <color key="textColor" red="0.64313725490196072" green="0.88627450980392153" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" name="Neo"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="W1w-qS-aWc"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="HW3-Sc-8tt" firstAttribute="centerX" secondItem="4RY-ht-9MI" secondAttribute="centerX" id="YG7-wS-qDD"/>
-                            <constraint firstItem="HW3-Sc-8tt" firstAttribute="centerY" secondItem="4RY-ht-9MI" secondAttribute="centerY" id="jxV-xp-Tfi"/>
+                            <constraint firstItem="HW3-Sc-8tt" firstAttribute="centerX" secondItem="W1w-qS-aWc" secondAttribute="centerX" id="YG7-wS-qDD"/>
+                            <constraint firstItem="HW3-Sc-8tt" firstAttribute="centerY" secondItem="W1w-qS-aWc" secondAttribute="centerY" id="jxV-xp-Tfi"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -94,7 +116,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7oS-FQ-LU6">
                                 <rect key="frame" x="188" y="410.5" width="38" height="85"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="70"/>
-                                <color key="textColor" red="0.64205932369999996" green="0.88717049319999997" blue="0.35010910610000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" name="Neo"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -121,7 +143,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6s2-wQ-tEX">
                                 <rect key="frame" x="188" y="410.5" width="38" height="85"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="70"/>
-                                <color key="textColor" red="0.64205932369999996" green="0.88717049319999997" blue="0.35010910610000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" name="Neo"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -148,7 +170,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JXu-A1-hcj">
                                 <rect key="frame" x="187.5" y="410.5" width="39" height="85"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="70"/>
-                                <color key="textColor" red="0.64205932369999996" green="0.88717049319999997" blue="0.35010910610000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" name="Neo"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -175,7 +197,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zWW-4R-uXe">
                                 <rect key="frame" x="189.5" y="410.5" width="35" height="85"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="70"/>
-                                <color key="textColor" red="0.64205932369999996" green="0.88717049319999997" blue="0.35010910610000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" name="Neo"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -193,6 +215,9 @@
         </scene>
     </scenes>
     <resources>
+        <namedColor name="Neo">
+            <color red="0.70999997854232788" green="0.93699997663497925" blue="0.34900000691413879" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

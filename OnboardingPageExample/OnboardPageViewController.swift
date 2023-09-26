@@ -14,9 +14,6 @@ class OnboardPageViewController: UIPageViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.dataSource = self
-        self.delegate = self
-
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         
         contentPageViewControllerList = [
