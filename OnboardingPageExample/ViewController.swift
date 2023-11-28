@@ -30,6 +30,7 @@ class ViewController: UIViewController {
         updatePageControlUI(currentPageIndex: nextPageIndex)
         
         changeButtonText(index: nextPageIndex)
+        print(nextPageIndex)
     }
     
     func changeButtonText(index: Int) {
@@ -82,8 +83,6 @@ extension ViewController: OnboardPageControlDelegate {
         changeButtonText(index: index)
 
     }
-    
-    
 }
 
 protocol OnboardPageControlDelegate: AnyObject {
